@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "洪九果品前端团队 React Native 项目 ESLint 规则",
   "author": "LING_ZI_QING <onlylingstudio@gmail.com>",
-  "homepage": "https://github.com/hjfruit/eslint-config#readme",
+  "homepage": "https://github.com/hjfruit/eslint-config/tree/main/packages/eslint-config-rn",
   "license": "ISC",
   "main": "index.js",
   "directories": {},

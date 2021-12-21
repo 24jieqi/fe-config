@@ -5,7 +5,7 @@
   "authors": [
     "LING_ZI_QING <onlylingstudio@gmail.com>"
   ],
-  "homepage": "https://github.com/hjfruit/eslint-config/packages/eslint-config-preset#readme",
+  "homepage": "https://github.com/hjfruit/eslint-config/tree/main/packages/eslint-config-preset",
   "license": "ISC",
   "main": "index.js",
   "directories": {},
