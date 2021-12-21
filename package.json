@@ -11,7 +11,9 @@
     "commit": "npx git-cz",
     "lint-staged": "lint-staged --allow-empty",
     "prepare": "husky install",
-    "ncu": "npx npm-check-updates -u"
+    "ncu": "npx npm-check-updates -u",
+    "set:npm": "npm config set registry https://registry.npmjs.org",
+    "set:taobao": "npm config set registry https://registry.npmmirror.com"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
