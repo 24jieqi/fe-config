@@ -6,7 +6,8 @@
   "command": {
     "publish": {
       "ignoreChanges": ["**/test/**", "**/__tests__/**"],
-      "message": "chore(release): publish"
+      "message": "chore(release): publish",
+      "registry": "https://registry.npmjs.org"
     }
   }
 }

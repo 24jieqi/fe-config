@@ -4,7 +4,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean --yes",
-    "publish": "lerna publish",
+    "l-changed": "lerna changed",
+    "l-publish": "lerna publish",
     "lint": "eslint packages --fix --ext .js",
     "lint:ts": "tsc --noEmit && eslint packages --ext .ts,.tsx",
     "prettier": "prettier --write 'packages/**/*.{js,json,yml,yaml,css,scss,less,ts,tsx,md}'",
