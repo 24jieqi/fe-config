@@ -6,6 +6,7 @@
     "clean": "lerna clean --yes",
     "l-changed": "lerna changed",
     "l-publish": "lerna publish",
+    "l-publish-package": "lerna publish from-package",
     "lint": "eslint packages --fix --ext .js",
     "lint:ts": "tsc --noEmit && eslint packages --ext .ts,.tsx",
     "prettier": "prettier --write 'packages/**/*.{js,json,yml,yaml,css,scss,less,ts,tsx,md}'",
