@@ -40,5 +40,6 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "prettier": "@fruits-chain/prettier-config-preset"
 }

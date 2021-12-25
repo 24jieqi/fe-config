@@ -1,0 +1,26 @@
+{
+  "name": "@fruits-chain/prettier-config-preset",
+  "version": "0.0.1",
+  "description": "洪九果品前端团队 prettier 规则",
+  "author": "LING_ZI_QING <onlylingstudio@gmail.com>",
+  "homepage": "https://github.com/hjfruit/fe-config#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "directories": {},
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjfruit/fe-config.git"
+  },
+  "keywords": [
+    "prettier"
+  ],
+  "bugs": {
+    "url": "https://github.com/hjfruit/fe-config/issues"
+  }
+}
