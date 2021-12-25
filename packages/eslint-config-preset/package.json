@@ -5,7 +5,7 @@
   "authors": [
     "LING_ZI_QING <onlylingstudio@gmail.com>"
   ],
-  "homepage": "https://github.com/hjfruit/eslint-config/tree/main/packages/eslint-config-preset",
+  "homepage": "https://github.com/hjfruit/fe-config/tree/main/packages/eslint-config-preset",
   "license": "ISC",
   "main": "index.js",
   "directories": {},
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hjfruit/eslint-config.git"
+    "url": "git+https://github.com/hjfruit/fe-config.git"
   },
   "keywords": [
     "eslint",
@@ -25,7 +25,7 @@
     "typescript"
   ],
   "bugs": {
-    "url": "https://github.com/hjfruit/eslint-config/issues"
+    "url": "https://github.com/hjfruit/fe-config/issues"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.8.0",
