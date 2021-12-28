@@ -28,11 +28,7 @@ module.exports = {
   },
 
   settings: {
-    'react-native/style-sheet-object-names': [
-      'EStyleSheet',
-      'OtherStyleSheet',
-      'PStyleSheet',
-    ],
+    'react-native/style-sheet-object-names': ['EStyleSheet', 'StyleSheet'],
   },
 
   // Map from global var to bool specifying if it can be redefined
