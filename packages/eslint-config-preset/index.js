@@ -64,6 +64,7 @@ module.exports = {
       },
     ],
     'import/default': 0,
+    '@typescript-eslint/no-shadow': 2,
   },
   settings: {
     react: {
