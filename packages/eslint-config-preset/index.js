@@ -64,7 +64,14 @@ module.exports = {
       },
     ],
     'import/default': 0,
+    /**
+     * 禁止变量名与上层作用域内的已定义的变量重复
+     */
     '@typescript-eslint/no-shadow': 2,
+    /**
+     * 必须使用 import type 导入类型
+     */
+    '@typescript-eslint/consistent-type-imports': 1,
   },
   settings: {
     react: {
