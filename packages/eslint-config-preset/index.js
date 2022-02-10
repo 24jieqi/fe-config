@@ -59,8 +59,14 @@ module.exports = {
           {
             pattern: '@/**',
             group: 'internal',
+            position: 'after',
           },
         ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
     'import/default': 0,
