@@ -24,7 +24,9 @@ yarn add @fruits-chain/stylelint-config-preset --dev
 
 ```json
 {
-  "stylelint": "@fruits-chain/stylelint-config-preset"
+  "stylelint": {
+    "extends": "@fruits-chain/stylelint-config-preset"
+  }
 }
 ```
 
@@ -32,6 +34,6 @@ yarn add @fruits-chain/stylelint-config-preset --dev
 
 ```js
 module.exports = {
-  ...require('@fruits-chain/stylelint-config-preset'),
+  extends: ['@fruits-chain/stylelint-config-preset'],
 }
 ```

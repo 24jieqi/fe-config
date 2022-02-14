@@ -1,6 +1,7 @@
 module.exports = {
   extends: ['stylelint-config-standard'],
   plugins: ['stylelint-order'],
+  customSyntax: 'postcss-less',
   rules: {
     // 颜色指定大写
     'color-hex-case': 'upper',
@@ -38,6 +39,8 @@ module.exports = {
     'number-leading-zero': 'never',
     // 禁止空第一行
     'no-empty-first-line': true,
+    // 单引号
+    'string-quotes': ['single'],
     // 属性的排序
     'order/properties-order': [
       'position',
