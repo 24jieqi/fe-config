@@ -5,5 +5,6 @@ module.exports = {
     'eslint-config-preset',
     'eslint-config-rn',
     'prettier-config-preset',
+    'stylelint-config-preset',
   ],
 }
