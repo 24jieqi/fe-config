@@ -32,8 +32,9 @@ module.exports = {
 
 项目统一使用 prettier 2.x
 
+> package.json
+
 ```json
-// package.json
 {
   "resolutions": {
     "prettier": "^2.5.1"
