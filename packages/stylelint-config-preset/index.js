@@ -18,5 +18,37 @@ module.exports = {
     'color-function-notation': 'legacy',
     'selector-class-pattern': null,
     'selector-id-pattern': null,
+    'function-no-unknown': [
+      true,
+      {
+        ignoreFunctions: [/~`\w*/, 'fade', 'lightness'],
+      },
+    ],
+    // 颜色指定大写
+    'color-hex-case': 'upper',
+    // 禁止空块
+    'block-no-empty': true,
+    // 颜色6位长度
+    'color-hex-length': 'long',
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global', 'local'],
+      },
+    ],
+    // 不验证@未知的名字，为了兼容scss的函数
+    'at-rule-no-unknown': null,
+    // 禁止空注释
+    'comment-no-empty': true,
+    // 禁止简写属性的冗余值
+    'shorthand-property-no-redundant-values': true,
+    // 禁止值的浏览器引擎前缀
+    'value-no-vendor-prefix': true,
+    // property-no-vendor-prefix
+    'property-no-vendor-prefix': true,
+    // 禁止小于 1 的小数有一个前导零
+    'number-leading-zero': 'never',
+    // 禁止空第一行
+    'no-empty-first-line': true,
   },
 }
