@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /**
    * 色彩
    * @default '#FFFAF0'

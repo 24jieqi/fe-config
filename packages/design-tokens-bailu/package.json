@@ -7,15 +7,7 @@
   "license": "ISC",
   "main": "index.js",
   "directories": {},
-  "files": [
-    "antd-mobile.css",
-    "antd-modify.js",
-    "e-stylesheet",
-    "index.js",
-    "less-global.js",
-    "index.css",
-    "theme.less"
-  ],
+  "files": [],
   "publishConfig": {
     "registry": "https://registry.npm.taobao.org/",
     "access": "public"

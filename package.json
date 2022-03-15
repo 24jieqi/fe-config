@@ -14,14 +14,14 @@
     "lint-staged": "lint-staged --allow-empty",
     "prepare": "husky install",
     "ncu": "npx npm-check-updates -u",
-    "set:npm": "npm config set registry https://registry.npmjs.org",
-    "set:taobao": "npm config set registry https://registry.npmmirror.com",
-    "test:eslint-config-preset": "ts-node ./packages/eslint-config-preset/__tests__/app.ts"
+    "test:eslint-config-preset": "ts-node ./packages/eslint-config-preset/__tests__/app.ts",
+    "gen:dt:bailu": "ts-node --project tsconfig.nodejs.json ./scripts/design-tokens/index.ts bailu"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
     "@types/eslint": "^8.4.1",
+    "@types/prettier": "^2.4.4",
     "@types/react": "^17.0.40",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
