@@ -1,0 +1,31 @@
+{
+  "name": "@fruits-chain/design-tokens-bailu",
+  "version": "0.0.0",
+  "description": "🎨 design tokens",
+  "author": "LING_ZI_QING <onlylingstudio@gmail.com>",
+  "homepage": "https://github.com/hjfruit/fe-config#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "directories": {},
+  "files": [
+    "antd-mobile.css",
+    "antd-modify.js",
+    "e-stylesheet",
+    "index.js",
+    "less-global.js",
+    "index.css",
+    "theme.less"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npm.taobao.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjfruit/fe-config.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/hjfruit/fe-config/issues"
+  }
+}
