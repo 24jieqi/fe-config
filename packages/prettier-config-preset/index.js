@@ -1,5 +1,6 @@
 // 更多配置 https://prettier.io/docs/en/options.html
 
+/** @type {import('prettier').Options} */
 module.exports = {
   // /**
   //  * 单行输出（不折行）的（最大）长度

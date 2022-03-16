@@ -6,8 +6,10 @@
   "homepage": "https://github.com/hjfruit/fe-config#readme",
   "license": "ISC",
   "main": "index.js",
+  "types": "index.d.ts",
   "directories": {},
   "files": [
+    "index.d.ts",
     "index.js"
   ],
   "publishConfig": {
