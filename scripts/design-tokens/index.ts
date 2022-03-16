@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
+import { cssGen } from './gen/css'
 import type { JSGenOption } from './gen/js'
 import { jsGen } from './gen/js'
 import { log } from './helper'
@@ -64,6 +65,19 @@ const startGenerate = async () => {
     genJavaScriptFile('index.mjs', { esm: true }),
     genJavaScriptFile('e-stylesheet.js', { stylesheet: true }),
     genJavaScriptFile('e-stylesheet.mjs', { stylesheet: true, esm: true }),
+    genJavaScriptFile('less-global.js', { less: true }),
+    genJavaScriptFile('less-global.mjs', { less: true, esm: true }),
+    (async () => {
+      const filename = 'index.css'
+      log('FgBlue', `准备生成 ${filename}`)
+
+      await fs.writeFile(
+        path.join(BASE_DIR, filename),
+        cssGen([colorVars, typographyVars, utilsVars]),
+      )
+
+      log('FgGreen', `完成 ${filename}`)
+    })(),
   ])
 }
 

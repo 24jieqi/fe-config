@@ -7,35 +7,42 @@ import type { VarValue } from '../typing'
 export interface JSGenOption {
   esm?: boolean
   stylesheet?: boolean
+  less?: boolean
 }
 
 export const jsGen = (
   varJSON: VarValue[][],
-  { esm, stylesheet }: JSGenOption,
+  { esm, stylesheet, less }: JSGenOption,
 ) => {
   const values: string[] = []
 
   varJSON.forEach(vars => {
     vars.forEach(item => {
+      // less 的数字需要加 px
       const _value =
-        typeof item.value === 'string' ? `'${item.value}'` : `${item.value}`
+        typeof item.value === 'string'
+          ? `'${item.value}'`
+          : less && !/^opacity\-\d*/.test(item.label)
+          ? `'${item.value}px'`
+          : `${item.value}`
+      const _key = less
+        ? `'${item.label}'`
+        : `${stylesheet ? '$' : ''}${formatKey(item.label)}`
 
       values.push(comments(item.desc, _value))
-      values.push(
-        `${stylesheet ? '$' : ''}${formatKey(item.label)}: ${_value},`,
-      )
+      values.push(`${_key}: ${_value},`)
     })
   })
 
   if (esm) {
-    return prettier.format(
-      `export default {${joinCode(values)}}`,
-      prettierConfigPreset,
-    )
+    return prettier.format(`export default {${joinCode(values)}}`, {
+      ...prettierConfigPreset,
+      parser: 'babel',
+    })
   }
 
-  return prettier.format(
-    `module.exports = {${joinCode(values)}}`,
-    prettierConfigPreset,
-  )
+  return prettier.format(`module.exports = {${joinCode(values)}}`, {
+    ...prettierConfigPreset,
+    parser: 'babel',
+  })
 }

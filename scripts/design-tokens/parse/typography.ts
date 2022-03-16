@@ -11,7 +11,7 @@ export const typographyParse = (
 
       values.push({
         value: _value,
-        label: key,
+        label: `font-${key}`,
         desc: '字体大小',
       })
     }

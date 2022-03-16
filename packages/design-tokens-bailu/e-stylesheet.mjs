@@ -508,52 +508,52 @@ export default {
    * 字体大小
    * @default 10
    */
-  $size_1: 10,
+  $font_size_1: 10,
   /**
    * 字体大小
    * @default 12
    */
-  $size_2: 12,
+  $font_size_2: 12,
   /**
    * 字体大小
    * @default 14
    */
-  $size_3: 14,
+  $font_size_3: 14,
   /**
    * 字体大小
    * @default 15
    */
-  $size_4: 15,
+  $font_size_4: 15,
   /**
    * 字体大小
    * @default 16
    */
-  $size_5: 16,
+  $font_size_5: 16,
   /**
    * 字体大小
    * @default 17
    */
-  $size_6: 17,
+  $font_size_6: 17,
   /**
    * 字体大小
    * @default 18
    */
-  $size_7: 18,
+  $font_size_7: 18,
   /**
    * 字体大小
    * @default 20
    */
-  $size_8: 20,
+  $font_size_8: 20,
   /**
    * 字体大小
    * @default 22
    */
-  $size_9: 22,
+  $font_size_9: 22,
   /**
    * 字体大小
    * @default 24
    */
-  $size_10: 24,
+  $font_size_10: 24,
   /**
    * 行高
    * @default 22
