@@ -3,10 +3,34 @@ import { strict as assert } from 'assert'
 import DesignTokensBailu from '@fruits-chain/design-tokens-bailu'
 import DesignTokensBailuVar from '@fruits-chain/design-tokens-bailu/lib/e-stylesheet.js'
 
-// import colorJSON from '../json/color/index.json'
+import colorJSON from '../json/color/index.json'
 
-console.log(DesignTokensBailu.brand_6)
-console.log(DesignTokensBailuVar.$brand_6)
-// console.log(colorJSON)
+// 颜色
+console.log('颜色开始校准')
 
-assert.equal(DesignTokensBailu.brand_6, DesignTokensBailuVar.$brand_6)
+Object.keys(colorJSON.color).forEach(key => {
+  const underlineKey = key.replace(/\-/g, '_')
+  const value = colorJSON.color[key] as {
+    hex: string
+    rgba: string
+  }
+  let _value: string | number
+
+  if (/^opacity\-\d*/.test(key)) {
+    const rgba = value.rgba.match(/\d+(\.\d+)?/g)
+    _value = Math.floor(+rgba[3]) / 100
+  } else {
+    _value = value.hex.toLocaleUpperCase()
+  }
+
+  assert.strictEqual(
+    _value,
+    DesignTokensBailu[underlineKey],
+    `颜色 ${underlineKey} 不对劲`,
+  )
+  assert.strictEqual(
+    _value,
+    DesignTokensBailuVar[`$${underlineKey}`],
+    `stylesheet 变量 $${underlineKey} 不对劲`,
+  )
+})
