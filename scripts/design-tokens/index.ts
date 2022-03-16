@@ -2,6 +2,7 @@ import fs from 'fs/promises'
 import path from 'path'
 
 import { antdMobileGen } from './gen/antd-mobile'
+import { antdModifyGen } from './gen/antd-modify'
 import { cssGen } from './gen/css'
 import type { JSGenOption } from './gen/js'
 import { jsGen } from './gen/js'
@@ -79,6 +80,8 @@ const startGenerate = async () => {
     genJavaScriptFile('less-global.mjs', { less: true, esm: true }),
     genCustomFile('index.css', cssGen([colorVars, typographyVars, utilsVars])),
     genCustomFile('antd-mobile.css', antdMobileGen()),
+    genCustomFile('antd-modify.js', antdModifyGen({})),
+    genCustomFile('antd-modify.mjs', antdModifyGen({ esm: true })),
   ])
 }
 

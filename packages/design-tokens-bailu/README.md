@@ -26,7 +26,7 @@ yarn add @fruits-chain/design-tokens-bailu --dev
 import React from 'react'
 
 import DesignTokensBailu from '@fruits-chain/design-tokens-bailu'
-import DesignTokensBailuVar from '@fruits-chain/design-tokens-bailu/e-stylesheet'
+import DesignTokensBailuVar from '@fruits-chain/design-tokens-bailu/lib/e-stylesheet.js'
 import { Provider } from '@fruits-chain/react-native-xiaoshu'
 
 import EStyleSheet from '@/lib/react-native-extended-stylesheet'
@@ -34,6 +34,8 @@ import EStyleSheet from '@/lib/react-native-extended-stylesheet'
 EStyleSheet.build({
   // $开头，_符号链接
   ...DesignTokensBailuVar,
+  // 自定义覆盖
+  $brand_6: '#f30',
 })
 
 import Routes from './routes'
@@ -54,8 +56,8 @@ export default App
 > craco.config.js
 
 ```js
-import DesignTokensBailuAntdModify from '@fruits-chain/design-tokens-bailu/antd-modify'
-import DesignTokensBailuLessGlobal from '@fruits-chain/design-tokens-bailu/less-global'
+import DesignTokensBailuAntdModify from '@fruits-chain/design-tokens-bailu/lib/antd-modify.js'
+import DesignTokensBailuLessGlobal from '@fruits-chain/design-tokens-bailu/lib/less-global.js'
 const CracoLessPlugin = require('craco-less')
 
 module.exports = {
@@ -87,10 +89,10 @@ module.exports = {
 import React from 'react'
 
 // 注入基础变量
-import '@fruits-chain/design-tokens-bailu/index.css'
+import '@fruits-chain/design-tokens-bailu/lib/index.css'
 
 // 覆盖 mobile
-import '@fruits-chain/design-tokens-bailu/antd-mobile.css'
+import '@fruits-chain/design-tokens-bailu/lib/antd-mobile.css'
 
 import Routes from './routes'
 

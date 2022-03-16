@@ -34,14 +34,16 @@ export const jsGen = (
     })
   })
 
+  const code = joinCode(values)
+
   if (esm) {
-    return prettier.format(`export default {${joinCode(values)}}`, {
+    return prettier.format(`export default {${code}}`, {
       ...prettierConfigPreset,
       parser: 'babel',
     })
   }
 
-  return prettier.format(`module.exports = {${joinCode(values)}}`, {
+  return prettier.format(`module.exports = {${code}}`, {
     ...prettierConfigPreset,
     parser: 'babel',
   })
