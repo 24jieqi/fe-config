@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
+import { antdMobileGen } from './gen/antd-mobile'
 import { cssGen } from './gen/css'
 import type { JSGenOption } from './gen/js'
 import { jsGen } from './gen/js'
@@ -16,6 +17,7 @@ const BASE_DIR = path.join(
   `../../packages/design-tokens-${TARGET_NAME}`,
 )
 const BASE_JSON_DIR = path.join(BASE_DIR, 'json')
+const OUT_DIR = path.join(BASE_DIR, 'lib')
 
 log(
   'FgMagenta',
@@ -53,9 +55,17 @@ const startGenerate = async () => {
     log('FgBlue', `准备生成 ${filename}`)
 
     await fs.writeFile(
-      path.join(BASE_DIR, filename),
+      path.join(OUT_DIR, filename),
       jsGen([colorVars, typographyVars, utilsVars], option),
     )
+
+    log('FgGreen', `完成 ${filename}`)
+  }
+
+  const genCustomFile = async (filename: string, data: string) => {
+    log('FgBlue', `准备生成 ${filename}`)
+
+    await fs.writeFile(path.join(OUT_DIR, filename), data)
 
     log('FgGreen', `完成 ${filename}`)
   }
@@ -67,17 +77,8 @@ const startGenerate = async () => {
     genJavaScriptFile('e-stylesheet.mjs', { stylesheet: true, esm: true }),
     genJavaScriptFile('less-global.js', { less: true }),
     genJavaScriptFile('less-global.mjs', { less: true, esm: true }),
-    (async () => {
-      const filename = 'index.css'
-      log('FgBlue', `准备生成 ${filename}`)
-
-      await fs.writeFile(
-        path.join(BASE_DIR, filename),
-        cssGen([colorVars, typographyVars, utilsVars]),
-      )
-
-      log('FgGreen', `完成 ${filename}`)
-    })(),
+    genCustomFile('index.css', cssGen([colorVars, typographyVars, utilsVars])),
+    genCustomFile('antd-mobile.css', antdMobileGen()),
   ])
 }
 

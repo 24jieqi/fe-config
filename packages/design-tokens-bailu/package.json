@@ -5,9 +5,11 @@
   "author": "LING_ZI_QING <onlylingstudio@gmail.com>",
   "homepage": "https://github.com/hjfruit/fe-config#readme",
   "license": "ISC",
-  "main": "index.js",
   "directories": {},
-  "files": [],
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/index.js",
   "publishConfig": {
     "registry": "https://registry.npm.taobao.org/",
     "access": "public"

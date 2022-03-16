@@ -15,6 +15,7 @@
     "prepare": "husky install",
     "ncu": "npx npm-check-updates -u",
     "test:eslint-config-preset": "ts-node ./packages/eslint-config-preset/__tests__/app.ts",
+    "test:design-tokens-bailu": "ts-node ./packages/design-tokens-bailu/__tests__/index.ts",
     "gen:dt:bailu": "ts-node --project tsconfig.nodejs.json ./scripts/design-tokens/index.ts bailu"
   },
   "devDependencies": {
