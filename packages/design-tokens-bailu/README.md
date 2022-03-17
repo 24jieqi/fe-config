@@ -17,7 +17,7 @@
 ## 使用方式
 
 ```bash
-yarn add @fruits-chain/design-tokens-bailu --dev
+yarn add @fruits-chain/design-tokens-bailu
 ```
 
 ### 小暑
