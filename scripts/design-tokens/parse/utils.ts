@@ -21,7 +21,7 @@ export const utilsParse = (utilsJSON: Record<string, UtilsValue>) => {
 
       values.push({
         value: _value,
-        label: key,
+        label: `border_${key}`,
         desc: '圆角',
       })
     }

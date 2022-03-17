@@ -633,37 +633,37 @@ interface TOKES {
    * 圆角
    * @default 0
    */
-  radius_xxs: number
+  border_radius_xxs: number
   /**
    * 圆角
    * @default 2
    */
-  radius_xs: number
+  border_radius_xs: number
   /**
    * 圆角
    * @default 4
    */
-  radius_s: number
+  border_radius_s: number
   /**
    * 圆角
    * @default 8
    */
-  radius_m: number
+  border_radius_m: number
   /**
    * 圆角
    * @default 12
    */
-  radius_l: number
+  border_radius_l: number
   /**
    * 圆角
    * @default 16
    */
-  radius_xl: number
+  border_radius_xl: number
   /**
    * 圆角
    * @default 9999
    */
-  radius_max: number
+  border_radius_max: number
 }
 
 const tokens: TOKES
