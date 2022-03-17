@@ -1,5 +1,4 @@
-import prettierConfigPreset from '@fruits-chain/prettier-config-preset'
-import * as prettier from 'prettier'
+import { minify } from 'terser'
 
 import { joinCode } from '../helper'
 
@@ -7,7 +6,7 @@ export interface AntdModifyGenOption {
   esm?: boolean
 }
 
-export const antdModifyGen = ({ esm }: AntdModifyGenOption) => {
+export const antdModifyGen = async ({ esm }: AntdModifyGenOption) => {
   const values: string[][] = [
     ['@primary-color', 'TOKENS.brand_6'],
     ['@success-color', 'TOKENS.green_6'],
@@ -25,30 +24,20 @@ export const antdModifyGen = ({ esm }: AntdModifyGenOption) => {
     }),
   )
 
-  if (esm) {
-    return prettier.format(
-      `
-    import TOKENS from './index.mjs';
-    
-    export default {${code}}
-    `,
-      {
-        ...prettierConfigPreset,
-        parser: 'babel',
-      },
-    )
-  }
-
-  return prettier.format(
-    `
-  const TOKENS = require('./index.js');
-
-  module.exports = {${code}}
+  const output = esm
+    ? `
+  import TOKENS from './index.mjs';
   
-  `,
-    {
-      ...prettierConfigPreset,
-      parser: 'babel',
-    },
-  )
+  export default {${code}}
+  `
+    : `
+    const TOKENS = require('./index.js');
+  
+    module.exports = {${code}}
+    
+    `
+
+  const result = await minify(output, { sourceMap: false })
+
+  return result.code
 }

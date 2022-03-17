@@ -1,7 +1,6 @@
-import prettierConfigPreset from '@fruits-chain/prettier-config-preset'
-import * as prettier from 'prettier'
+import { minify } from 'terser'
 
-import { formatKey, joinCode, comments } from '../helper'
+import { formatKey, joinCode } from '../helper'
 import type { VarValue } from '../typing'
 
 export interface JSGenOption {
@@ -10,7 +9,7 @@ export interface JSGenOption {
   less?: boolean
 }
 
-export const jsGen = (
+export const jsGen = async (
   varJSON: VarValue[][],
   { esm, stylesheet, less }: JSGenOption,
 ) => {
@@ -29,22 +28,15 @@ export const jsGen = (
         ? `'${item.label}'`
         : `${stylesheet ? '$' : ''}${formatKey(item.label)}`
 
-      values.push(comments(item.desc, _value))
       values.push(`${_key}: ${_value},`)
     })
   })
 
-  const code = joinCode(values)
+  const code = esm
+    ? `export default {${joinCode(values)}}`
+    : `module.exports = {${joinCode(values)}}`
 
-  if (esm) {
-    return prettier.format(`export default {${code}}`, {
-      ...prettierConfigPreset,
-      parser: 'babel',
-    })
-  }
+  const result = await minify(code, { sourceMap: false })
 
-  return prettier.format(`module.exports = {${code}}`, {
-    ...prettierConfigPreset,
-    parser: 'babel',
-  })
+  return result.code
 }

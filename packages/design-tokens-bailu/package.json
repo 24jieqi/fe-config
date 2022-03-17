@@ -10,6 +10,7 @@
     "lib"
   ],
   "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"

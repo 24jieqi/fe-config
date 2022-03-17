@@ -1,10 +1,9 @@
-import prettierConfigPreset from '@fruits-chain/prettier-config-preset'
-import * as prettier from 'prettier'
+import CleanCSS from 'clean-css'
 
 import { joinCode } from '../helper'
 import type { VarValue } from '../typing'
 
-export const cssGen = (varJSON: VarValue[][]) => {
+export const cssGen = async (varJSON: VarValue[][]) => {
   const values: string[] = []
 
   varJSON.forEach(vars => {
@@ -18,8 +17,5 @@ export const cssGen = (varJSON: VarValue[][]) => {
     })
   })
 
-  return prettier.format(`:root {${joinCode(values)}}`, {
-    ...prettierConfigPreset,
-    parser: 'css',
-  })
+  return new CleanCSS().minify(`:root {${joinCode(values)}}`).styles
 }

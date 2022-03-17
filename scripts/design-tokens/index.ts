@@ -6,6 +6,7 @@ import { antdModifyGen } from './gen/antd-modify'
 import { cssGen } from './gen/css'
 import type { JSGenOption } from './gen/js'
 import { jsGen } from './gen/js'
+import { typesGen } from './gen/types'
 import { log } from './helper'
 import { colorParse } from './parse/color'
 import { typographyParse } from './parse/typography'
@@ -55,33 +56,44 @@ const startGenerate = async () => {
   const genJavaScriptFile = async (filename: string, option: JSGenOption) => {
     log('FgBlue', `准备生成 ${filename}`)
 
-    await fs.writeFile(
-      path.join(OUT_DIR, filename),
-      jsGen([colorVars, typographyVars, utilsVars], option),
-    )
+    const code = await jsGen([colorVars, typographyVars, utilsVars], option)
+
+    await fs.writeFile(path.join(OUT_DIR, filename), code)
 
     log('FgGreen', `完成 ${filename}`)
   }
 
-  const genCustomFile = async (filename: string, data: string) => {
+  const genCustomFile = async (
+    filename: string,
+    getCode: () => Promise<string>,
+  ) => {
     log('FgBlue', `准备生成 ${filename}`)
 
-    await fs.writeFile(path.join(OUT_DIR, filename), data)
+    const code = await getCode()
+
+    await fs.writeFile(path.join(OUT_DIR, filename), code)
 
     log('FgGreen', `完成 ${filename}`)
   }
+
+  // esm 暂时不生产，没有招到合适的方式动态加载
 
   await Promise.all([
     genJavaScriptFile('index.js', {}),
-    genJavaScriptFile('index.mjs', { esm: true }),
+    // genJavaScriptFile('index.mjs', { esm: true }),
     genJavaScriptFile('e-stylesheet.js', { stylesheet: true }),
-    genJavaScriptFile('e-stylesheet.mjs', { stylesheet: true, esm: true }),
+    // genJavaScriptFile('e-stylesheet.mjs', { stylesheet: true, esm: true }),
     genJavaScriptFile('less-global.js', { less: true }),
-    genJavaScriptFile('less-global.mjs', { less: true, esm: true }),
-    genCustomFile('index.css', cssGen([colorVars, typographyVars, utilsVars])),
-    genCustomFile('antd-mobile.css', antdMobileGen()),
-    genCustomFile('antd-modify.js', antdModifyGen({})),
-    genCustomFile('antd-modify.mjs', antdModifyGen({ esm: true })),
+    // genJavaScriptFile('less-global.mjs', { less: true, esm: true }),
+    genCustomFile('index.css', () =>
+      cssGen([colorVars, typographyVars, utilsVars]),
+    ),
+    genCustomFile('antd-mobile.css', () => antdMobileGen()),
+    genCustomFile('antd-modify.js', () => antdModifyGen({})),
+    // genCustomFile('antd-modify.mjs', () => antdModifyGen({ esm: true })),
+    genCustomFile('index.d.ts', () =>
+      typesGen([colorVars, typographyVars, utilsVars]),
+    ),
   ])
 }
 

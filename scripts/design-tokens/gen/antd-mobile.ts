@@ -1,8 +1,7 @@
-import prettierConfigPreset from '@fruits-chain/prettier-config-preset'
-import * as prettier from 'prettier'
+import CleanCSS from 'clean-css'
 
-export const antdMobileGen = () => {
-  return prettier.format(
+export const antdMobileGen = async () => {
+  return new CleanCSS().minify(
     `:root:root {
       --adm-color-primary: var(--brand-6);
       --adm-color-success: var(--green-6);
@@ -13,9 +12,5 @@ export const antdMobileGen = () => {
       --adm-font-size-main: var(--font-size-2);
       --adm-color-text: var(--gray-6);
   }`,
-    {
-      ...prettierConfigPreset,
-      parser: 'css',
-    },
-  )
+  ).styles
 }
