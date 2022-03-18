@@ -15,7 +15,7 @@ export const antdModifyGen = async ({ esm }: AntdModifyGenOption) => {
     ['@border-color-base', 'TOKENS.gray_2'],
     ['@border-color-split', 'TOKENS.gray_4'],
     // eslint-disable-next-line no-template-curly-in-string
-    ['@border-radius-base', '`${TOKENS.radius_s}px`'],
+    ['@border-radius-base', '`${TOKENS.border_radius_s}px`'],
   ]
 
   const code = joinCode(
