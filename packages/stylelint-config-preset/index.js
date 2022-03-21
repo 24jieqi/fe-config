@@ -7,6 +7,8 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': true,
+    // 兼容 prettier
+    'string-quotes': ['single', {}],
     'function-name-case': ['lower', { ignoreFunctions: ['/colorPalette/'] }],
     'no-descending-specificity': null,
     'no-invalid-position-at-import-rule': null,
