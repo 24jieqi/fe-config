@@ -5,8 +5,12 @@ module.exports = {
     'stylelint-config-prettier',
   ],
   customSyntax: 'postcss-less',
-  plugins: ['stylelint-declaration-block-no-ignored-properties'],
+  plugins: [
+    'stylelint-declaration-block-no-ignored-properties',
+    'stylelint-prettier',
+  ],
   rules: {
+    'prettier/prettier': true,
     'function-name-case': ['lower', { ignoreFunctions: ['/colorPalette/'] }],
     'no-descending-specificity': null,
     'no-invalid-position-at-import-rule': null,
