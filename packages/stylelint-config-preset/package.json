@@ -1,6 +1,6 @@
 {
   "name": "@fruits-chain/stylelint-config-preset",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "💪🏻 洪九果品前端团队 stylelint 规则",
   "keywords": [
     "stylelint"
