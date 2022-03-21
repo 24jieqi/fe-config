@@ -11,7 +11,7 @@
       position: absolute;
       bottom: 10vh;
       left: 12.7%;
-      color: #FFFFFF;
+      color: #ffffff;
     }
 
     .slogan {
@@ -21,7 +21,7 @@
 
     .sloganEn {
       font-size: 12px;
-      opacity: .65;
+      opacity: 0.65;
     }
   }
 
@@ -32,5 +32,13 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 80px;
+  }
+
+  :global(.ant-input) {
+    width: 80px;
+
+    :local(.text) {
+      width: 20px;
+    }
   }
 }

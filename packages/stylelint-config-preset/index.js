@@ -1,9 +1,5 @@
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-rational-order',
-    'stylelint-config-prettier',
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-rational-order'],
   customSyntax: 'postcss-less',
   plugins: [
     'stylelint-declaration-block-no-ignored-properties',
@@ -28,8 +24,9 @@ module.exports = {
         ignoreFunctions: [/~`\w*/, 'fade', 'lightness'],
       },
     ],
-    // 颜色指定大写
-    'color-hex-case': 'upper',
+    // 兼容 prettier
+    // // 颜色指定大写
+    // 'color-hex-case': 'upper',
     // 禁止空块
     'block-no-empty': true,
     // 颜色6位长度
@@ -50,8 +47,9 @@ module.exports = {
     'value-no-vendor-prefix': true,
     // property-no-vendor-prefix
     'property-no-vendor-prefix': true,
-    // 禁止小于 1 的小数有一个前导零
-    'number-leading-zero': 'never',
+    // 兼容 prettier
+    // // 禁止小于 1 的小数有一个前导零
+    // 'number-leading-zero': 'never',
     // 禁止空第一行
     'no-empty-first-line': true,
   },
