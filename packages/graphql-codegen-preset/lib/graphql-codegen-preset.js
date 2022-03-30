@@ -71,7 +71,7 @@ const cacheDir = path.join(cwdUrl, 'node_modules/.fruits-chain')
 const realCodegenPath = path.join(cacheDir, 'codegen.yml')
 
 fsPromises
-  .readFile(path.join(__dirname, '../codegen.yml'))
+  .readFile(path.join(__dirname, 'codegen.yml'))
   .then(async s => {
     let fileStr = s.toString()
 

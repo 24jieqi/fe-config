@@ -11,8 +11,7 @@
   "main": "lib/graphql-codegen-preset.js",
   "directories": {},
   "files": [
-    "lib",
-    "./codegen.yml"
+    "lib"
   ],
   "bin": {
     "fruits-chain-gc": "./lib/graphql-codegen-preset.js"
