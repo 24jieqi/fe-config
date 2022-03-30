@@ -1,0 +1,50 @@
+schema:
+  - ${SCHEMA_PATH}
+generates:
+  ./src/graphql/generated/schema.graphql:
+    plugins:
+      - schema-ast
+    config:
+      federation: false
+  src/graphql/generated/types.ts:
+    plugins:
+      - typescript
+    config:
+      scalars:
+        BigDecimal: number
+        Long: number
+        Date: number
+        DateTime: number
+  ./src/graphql/:
+    documents:
+      - 'src/graphql/operations/**/**.gql'
+    preset: near-operation-file
+    presetConfig:
+      extension: '.generated.ts'
+      baseTypesPath: 'generated/types.ts'
+      importTypesNamespace: SchemaTypes
+      folder: __generated__
+    plugins:
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      maybeValue: T
+      arrayInputCoercion: false
+      preResolveTypes: true
+      onlyOperationTypes: true
+      declarationKind: interface
+      skipTypeNameForRoot: true
+      useTypeImports: true
+      omitOperationSuffix: false
+      scalars:
+        BigDecimal: number
+        Long: number
+        Date: number
+        DateTime: number
+hooks:
+  afterAllFileWrite:
+    - npx --no-install eslint --fix
+watch: true
+watchConfig:
+  usePolling: true
+  interval: 100

@@ -1,0 +1,52 @@
+{
+  "name": "@fruits-chain/graphql-codegen-preset",
+  "version": "0.0.0",
+  "description": "💪🏻  洪九果品前端团队 graphql-codegen 通用方案",
+  "keywords": [
+    "graphql-codegen"
+  ],
+  "author": "LING_ZI_QING <onlylingstudio@gmail.com>",
+  "homepage": "https://github.com/hjfruit/fe-config#readme",
+  "license": "ISC",
+  "main": "lib/graphql-codegen-preset.js",
+  "directories": {},
+  "files": [
+    "lib",
+    "./codegen.yml"
+  ],
+  "bin": {
+    "fruits-chain-gc": "./lib/graphql-codegen-preset.js"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjfruit/fe-config.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/hjfruit/fe-config/issues"
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/near-operation-file-preset": "2.2.9",
+    "@graphql-codegen/schema-ast": "2.4.1",
+    "@graphql-codegen/typescript": "2.4.8",
+    "@graphql-codegen/typescript-operations": "2.3.5",
+    "@graphql-codegen/typescript-react-apollo": "3.2.11",
+    "commander": "^9.1.0",
+    "cross-spawn": "^7.0.3"
+  },
+  "peerDependencies": {
+    "@apollo/client": "*",
+    "graphql": "*"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.5.10",
+    "graphql": "^16.3.0"
+  }
+}
