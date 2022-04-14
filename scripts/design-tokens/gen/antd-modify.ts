@@ -12,8 +12,8 @@ export const antdModifyGen = async ({ esm }: AntdModifyGenOption) => {
     ['@success-color', 'TOKENS.green_6'],
     ['@warning-color', 'TOKENS.yellow_6'],
     ['@error-color', 'TOKENS.red_6'],
-    ['@border-color-base', 'TOKENS.gray_2'],
-    ['@border-color-split', 'TOKENS.gray_4'],
+    // ['@border-color-base', 'TOKENS.gray_2'],
+    // ['@border-color-split', 'TOKENS.gray_4'],
     // eslint-disable-next-line no-template-curly-in-string
     ['@card-radius', '`${TOKENS.border_radius_s}px`'],
   ]
