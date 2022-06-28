@@ -1,3 +1,4 @@
+import type { FC } from 'react'
 import React, { useEffect, useState } from 'react'
 
 import Bb from '@/eslint-config-preset/__tests__/code/components/b'
@@ -5,7 +6,7 @@ import Bb from '@/eslint-config-preset/__tests__/code/components/b'
 import Aa from './components/a'
 import { SomeEnum } from './enum'
 
-const App: React.FC = () => {
+const App: FC = () => {
   const [value] = useState(0)
 
   useEffect(() => {
