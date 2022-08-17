@@ -17,12 +17,14 @@ export const jsGen = async (
 
   varJSON.forEach(vars => {
     vars.forEach(item => {
-      // less 的数字需要加 px
+      // less 的数字需要加 px, less 所有值都应该是字符串
       const _value =
         typeof item.value === 'string'
           ? `'${item.value}'`
-          : less && !/^opacity\-\d*/.test(item.label)
-          ? `'${item.value}px'`
+          : less
+          ? !/^opacity\-\d*/.test(item.label)
+            ? `'${item.value}px'`
+            : `'${item.value}'`
           : `${item.value}`
       const _key = less
         ? `'${item.label}'`
@@ -38,5 +40,5 @@ export const jsGen = async (
 
   const result = await minify(code, { sourceMap: false })
 
-  return result.code
+  return result.code || ''
 }

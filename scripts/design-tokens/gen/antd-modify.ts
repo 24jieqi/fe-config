@@ -39,5 +39,5 @@ export const antdModifyGen = async ({ esm }: AntdModifyGenOption) => {
 
   const result = await minify(output, { sourceMap: false })
 
-  return result.code
+  return result.code || ''
 }
