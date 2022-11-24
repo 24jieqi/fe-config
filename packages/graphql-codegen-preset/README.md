@@ -32,3 +32,41 @@ yarn add @apollo/client graphql
   "gen:graphql-codegen:w": "fruits-chain-gc http://192.168.10.233:9406/graphql -w"
 }
 ```
+
+## 参数
+
+### --watch
+
+> fruits-chain-gc http://xx/graphql -w 或 fruits-chain-gc http://xx/graphql --watch
+
+监听代码变更自动生成代码
+
+### --ignore-eslint
+
+> fruits-chain-gc http://xx/graphql -ie 或 fruits-chain-gc http://xx/graphql --ignore-eslint
+
+生成代码后自动 eslint
+
+### --folder
+
+> fruits-chain-gc http://xx/graphql -ie gg 或 fruits-chain-gc http://xx/graphql --ignore-eslint gg
+
+自定义 graphql 文件夹，默认值 `src/graphql`
+
+### --schema
+
+> fruits-chain-gc http://xx/graphql -s gg 或 fruits-chain-gc http://xx/graphql --schema gg
+
+自定义 schema.graphql 文件夹，默认值 `generated`，文件保存路径：`${F}/${S}/schema.graphql`
+
+### --types
+
+> fruits-chain-gc http://xx/graphql -t tt 或 fruits-chain-gc http://xx/graphql --types tt
+
+自定义 types.ts 文件夹，默认值 `generated`，文件保存路径：`${F}/${T}/types.ts`
+
+### --documents
+
+> fruits-chain-gc http://xx/graphql -d gqls 或 fruits-chain-gc http://xx/graphql --documents gqls
+
+自定义 .gql 文件夹，默认值 `operations`，文件保存路径：`${F}/${D}/**/**.gql`

@@ -1,12 +1,12 @@
 schema:
-  - ${SCHEMA_PATH}
+  - #{SCHEMA_PATH}
 generates:
-  ./src/graphql/generated/schema.graphql:
+  #{SCHEMA_GRAPHQL_PATH}:
     plugins:
       - schema-ast
     config:
       federation: false
-  src/graphql/generated/types.ts:
+  #{TYPES_PATH}:
     plugins:
       - typescript
     config:
@@ -15,13 +15,13 @@ generates:
         Long: number
         Date: number
         DateTime: number
-  ./src/graphql/:
+  #{FOLDER_PATH}:
     documents:
-      - 'src/graphql/operations/**/**.gql'
+      - '#{DOCUMENTS_PATH}'
     preset: near-operation-file
     presetConfig:
       extension: '.generated.ts'
-      baseTypesPath: 'generated/types.ts'
+      baseTypesPath: '#{BASE_TYPES_PATH}'
       importTypesNamespace: SchemaTypes
       folder: __generated__
     plugins:
@@ -43,8 +43,8 @@ generates:
         DateTime: number
 hooks:
   afterAllFileWrite:
-    - npx --no-install eslint --fix
-watch: true
+    #{ESLINT}
+watch: #{WATCH}
 watchConfig:
   usePolling: true
   interval: 100

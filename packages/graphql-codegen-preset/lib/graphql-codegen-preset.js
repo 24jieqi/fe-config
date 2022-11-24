@@ -57,14 +57,35 @@ program
 program
   .description('graphql-codegen 快捷命令')
   .argument('<string>', '业务系统 graphql url')
-  .option('--watch, -w', '监听代码变更自动生成代码')
+  .option('--watch, -w', '监听代码变更自动生成代码', false)
+  .option('--ignore-eslint, -ie', '生成代码后自动 eslint', true)
+  .option(
+    '--folder, -f <folder>',
+    '自定义 graphql 文件夹，默认值 `src/graphql`',
+    'src/graphql',
+  )
+  .option(
+    '--schema, -s <schema>',
+    // eslint-disable-next-line no-template-curly-in-string
+    '自定义 schema.graphql 文件夹，默认值 `generated`，文件保存路径：${F}/${S}/schema.graphql',
+    'generated',
+  )
+  .option(
+    '--types, -t <types>',
+    // eslint-disable-next-line no-template-curly-in-string
+    '自定义 types.ts 文件夹，默认值 `generated`，文件保存路径：${F}/${T}/types.ts',
+    'generated',
+  )
+  .option(
+    '--documents, -d <types>',
+    // eslint-disable-next-line no-template-curly-in-string
+    '自定义 .gql 文件夹，默认值 `operations`，文件保存路径：${F}/${D}/**/**.gql',
+    'operations',
+  )
 
 program.parse()
 
 log('FgCyan', 'codegen.yml 准备中...')
-
-// console.log('string: ', program.args[0])
-// console.log('Options: ', program.opts())
 
 const cwdUrl = process.cwd()
 const cacheDir = path.join(cwdUrl, 'node_modules/.fruits-chain')
@@ -75,11 +96,23 @@ fsPromises
   .then(async s => {
     let fileStr = s.toString()
 
-    // 替换 SCHEMA_PATH
-    fileStr = fileStr.replace(/\$\{SCHEMA_PATH\}/, program.args[0])
+    const { W, F, S, T, D, Ie } = program.opts()
 
-    // 是否监听
-    fileStr = fileStr.replace(/watch\: true/, `watch: ${!!program.opts().W}`)
+    const VAR_MAP = {
+      SCHEMA_PATH: program.args[0],
+      FOLDER_PATH: F,
+      SCHEMA_GRAPHQL_PATH: `${F}/${S}/schema.graphql`,
+      TYPES_PATH: `${F}/${T}/types.ts`,
+      DOCUMENTS_PATH: `${F}/${D}/**/**.gql`,
+      BASE_TYPES_PATH: `${T}/types.ts`,
+      WATCH: W ? 'true' : 'false',
+      ESLINT: !Ie ? '- npx --no-install eslint --fix' : '',
+    }
+
+    Object.entries(VAR_MAP).forEach(([key, value]) => {
+      const r = new RegExp('#{' + key + '}')
+      fileStr = fileStr.replace(r, value)
+    })
 
     log('FgCyan', 'codegen.yml 配置构建完成')
 
