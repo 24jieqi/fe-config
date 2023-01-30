@@ -45,11 +45,11 @@ yarn add @apollo/client graphql
 
 > fruits-chain-gc http://xx/graphql -ie 或 fruits-chain-gc http://xx/graphql --ignore-eslint
 
-生成代码后自动 eslint
+生成代码后自动 eslint，默认不做 eslint，如果需要命令为 `fruits-chain-gc http://xx/graphql --no-ignore-eslint`
 
 ### --folder
 
-> fruits-chain-gc http://xx/graphql -ie gg 或 fruits-chain-gc http://xx/graphql --ignore-eslint gg
+> fruits-chain-gc http://xx/graphql -f gg 或 fruits-chain-gc http://xx/graphql --folder gg
 
 自定义 graphql 文件夹，默认值 `src/graphql`
 

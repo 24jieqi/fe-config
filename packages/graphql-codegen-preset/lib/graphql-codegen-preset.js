@@ -58,7 +58,8 @@ program
   .description('graphql-codegen 快捷命令')
   .argument('<string>', '业务系统 graphql url')
   .option('--watch, -w', '监听代码变更自动生成代码', false)
-  .option('--ignore-eslint, -ie', '生成代码后自动 eslint', true)
+  .option('--ignore-eslint, -ie', '生成代码后不做 eslint', true)
+  .option('--no-ignore-eslint, -nie', '生成代码后做 eslint')
   .option(
     '--folder, -f <folder>',
     '自定义 graphql 文件夹，默认值 `src/graphql`',
@@ -96,7 +97,7 @@ fsPromises
   .then(async s => {
     let fileStr = s.toString()
 
-    const { W, F, S, T, D, Ie } = program.opts()
+    const { W, F, S, T, D, Ie, Nie } = program.opts()
 
     const VAR_MAP = {
       SCHEMA_PATH: program.args[0],
@@ -106,7 +107,7 @@ fsPromises
       DOCUMENTS_PATH: `${F}/${D}/**/**.gql`,
       BASE_TYPES_PATH: `${T}/types.ts`,
       WATCH: W ? 'true' : 'false',
-      ESLINT: !Ie ? '- npx --no-install eslint --fix' : '',
+      ESLINT: Nie || !Ie ? '- npx --no-install eslint --fix' : '',
     }
 
     Object.entries(VAR_MAP).forEach(([key, value]) => {
