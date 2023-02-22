@@ -61,28 +61,34 @@ program
   .option('--ignore-eslint, -ie', '生成代码后不做 eslint', true)
   .option('--no-ignore-eslint, -nie', '生成代码后做 eslint')
   .option(
-    '--folder, -f <folder>',
+    '--folder, -f <string>',
     '自定义 graphql 文件夹，默认值 `src/graphql`',
     'src/graphql',
   )
   .option(
-    '--schema, -s <schema>',
+    '--schema, -s <string>',
     // eslint-disable-next-line no-template-curly-in-string
     '自定义 schema.graphql 文件夹，默认值 `generated`，文件保存路径：${F}/${S}/schema.graphql',
     'generated',
   )
   .option(
-    '--types, -t <types>',
+    '--types, -t <string>',
     // eslint-disable-next-line no-template-curly-in-string
     '自定义 types.ts 文件夹，默认值 `generated`，文件保存路径：${F}/${T}/types.ts',
     'generated',
   )
   .option(
-    '--documents, -d <types>',
+    '--documents, -d <string>',
     // eslint-disable-next-line no-template-curly-in-string
     '自定义 .gql 文件夹，默认值 `operations`，文件保存路径：${F}/${D}/**/**.gql',
     'operations',
   )
+  .option('--scalars, <string...>', '自定义 GraphQL 类型转换', [
+    'BigDecimal:number',
+    'Long:number',
+    'Date:number',
+    'DateTime:number',
+  ])
 
 program.parse()
 
@@ -97,7 +103,7 @@ fsPromises
   .then(async s => {
     let fileStr = s.toString()
 
-    const { W, F, S, T, D, Ie, Nie } = program.opts()
+    const { W, F, S, T, D, Ie, Nie, scalars } = program.opts()
 
     const VAR_MAP = {
       SCHEMA_PATH: program.args[0],
@@ -108,6 +114,13 @@ fsPromises
       BASE_TYPES_PATH: `${T}/types.ts`,
       WATCH: W ? 'true' : 'false',
       ESLINT: Nie || !Ie ? '- npx --no-install eslint --fix' : '',
+      SCALARS: scalars
+        .map(v => {
+          const vs = v.split(':')
+          // TODO 优化 补八个空格
+          return `        ${vs[0]}: ${vs[1]}`
+        })
+        .join('\n'),
     }
 
     Object.entries(VAR_MAP).forEach(([key, value]) => {

@@ -37,10 +37,7 @@ generates:
       useTypeImports: true
       omitOperationSuffix: false
       scalars:
-        BigDecimal: number
-        Long: number
-        Date: number
-        DateTime: number
+#{SCALARS}
 hooks:
   afterAllFileWrite:
     #{ESLINT}

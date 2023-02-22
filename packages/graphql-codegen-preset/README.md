@@ -70,3 +70,9 @@ yarn add @apollo/client graphql
 > fruits-chain-gc http://xx/graphql -d gqls 或 fruits-chain-gc http://xx/graphql --documents gqls
 
 自定义 .gql 文件夹，默认值 `operations`，文件保存路径：`${F}/${D}/**/**.gql`
+
+### --scalars
+
+> fruits-chain-gc http://xx/graphql --scalars BigDecimal:number ID:string
+
+自定义 GraphQL 类型转换
