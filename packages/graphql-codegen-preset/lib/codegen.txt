@@ -1,0 +1,61 @@
+import type { CodegenConfig } from '@graphql-codegen/cli'
+
+const config: CodegenConfig = {
+  schema: '#{SCHEMA_PATH}',
+  ignoreNoDocuments: true,
+  generates: {
+    // src/graphql/generated/schema.graphql
+    '#{SCHEMA_GRAPHQL_PATH}': {
+      plugins: ['@fruits-chain/schema-ast'],
+      config: {
+        federation: false,
+        includeDirectives: true,
+        strictScalars: true,
+        customDirectives: true,
+        url: '#{SCHEMA_PATH}',
+      },
+    },
+    // src/graphql/generated/types.ts
+    '#{TYPES_PATH}': {
+      plugins: ['typescript'],
+      config: {
+        scalars: #{SCALARS},
+      },
+    },
+    // src/graphql
+    '#{FOLDER_PATH}': {
+      // src/graphql/operations/**/**.gql
+      documents: ['#{DOCUMENTS_PATH}'],
+      preset: 'near-operation-file',
+      presetConfig: {
+        extension: '.generated.ts',
+        // generated/types.ts
+        baseTypesPath: '#{BASE_TYPES_PATH}',
+        importTypesNamespace: 'SchemaTypes',
+        folder: '__generated__',
+      },
+      plugins: ['typescript-operations', 'typescript-react-apollo'],
+      config: {
+        maybeValue: 'T',
+        arrayInputCoercion: false,
+        preResolveTypes: true,
+        onlyOperationTypes: true,
+        declarationKind: 'interface',
+        skipTypeNameForRoot: true,
+        useTypeImports: true,
+        omitOperationSuffix: false,
+        scalars: #{SCALARS},
+      },
+    },
+  },
+  hooks: {
+    afterAllFileWrite: [#{ESLINT}],
+  },
+  watch: #{WATCH},
+  watchConfig: {
+    usePolling: true,
+    interval: 100,
+  },
+}
+
+export default config

@@ -92,14 +92,14 @@ program
 
 program.parse()
 
-log('FgCyan', 'codegen.yml 准备中...')
+log('FgCyan', 'codegen.ts 准备中...')
 
 const cwdUrl = process.cwd()
 const cacheDir = path.join(cwdUrl, 'node_modules/.fruits-chain')
-const realCodegenPath = path.join(cacheDir, 'codegen.yml')
+const realCodegenPath = path.join(cacheDir, 'codegen.ts')
 
 fsPromises
-  .readFile(path.join(__dirname, 'codegen.yml'))
+  .readFile(path.join(__dirname, 'codegen.txt'))
   .then(async s => {
     let fileStr = s.toString()
 
@@ -113,22 +113,21 @@ fsPromises
       DOCUMENTS_PATH: `${F}/${D}/**/**.gql`,
       BASE_TYPES_PATH: `${T}/types.ts`,
       WATCH: W ? 'true' : 'false',
-      ESLINT: Nie || !Ie ? '- npx --no-install eslint --fix' : '',
-      SCALARS: scalars
+      ESLINT: Nie || !Ie ? `"npx --no-install eslint --fix"` : '',
+      SCALARS: `{${scalars
         .map(v => {
           const vs = v.split(':')
-          // TODO 优化 补八个空格
-          return `        ${vs[0]}: ${vs[1]}`
+          return `${vs[0]}:'${vs[1]}'`
         })
-        .join('\n'),
+        .join(',')}}`,
     }
 
     Object.entries(VAR_MAP).forEach(([key, value]) => {
-      const r = new RegExp('#{' + key + '}')
+      const r = new RegExp('#{' + key + '}', 'g')
       fileStr = fileStr.replace(r, value)
     })
 
-    log('FgCyan', 'codegen.yml 配置构建完成')
+    log('FgCyan', 'codegen.ts 配置构建完成')
 
     // 是否存在缓存文件夹
     const cacheStat = fs.existsSync(cacheDir)
