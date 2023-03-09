@@ -1,0 +1,27 @@
+{
+  "name": "@fruits-chain/schema-ast",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "homepage": "https://github.com/hjfruit/fe-config#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "directories": {},
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjfruit/fe-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hjfruit/fe-config/issues"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}

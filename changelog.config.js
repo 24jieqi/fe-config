@@ -7,6 +7,7 @@ module.exports = {
     'eslint-config-rn',
     'graphql-codegen-preset',
     'prettier-config-preset',
+    'schema-ast',
     'stylelint-config-preset',
   ],
 }
