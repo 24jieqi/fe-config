@@ -113,7 +113,8 @@ fsPromises
       DOCUMENTS_PATH: `${F}/${D}/**/**.gql`,
       BASE_TYPES_PATH: `${T}/types.ts`,
       WATCH: W ? 'true' : 'false',
-      ESLINT: Nie || !Ie ? `"npx --no-install eslint --fix"` : '',
+      ESLINT:
+        Nie || !Ie ? `'prettier --write' ,'npx --no-install eslint --fix'` : '',
       SCALARS: `{${scalars
         .map(v => {
           const vs = v.split(':')
