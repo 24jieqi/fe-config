@@ -5,16 +5,7 @@ const config: CodegenConfig = {
   ignoreNoDocuments: true,
   generates: {
     // src/graphql/generated/schema.graphql
-    '#{SCHEMA_GRAPHQL_PATH}': {
-      plugins: ['@fruits-chain/schema-ast'],
-      config: {
-        federation: false,
-        includeDirectives: true,
-        strictScalars: true,
-        customDirectives: true,
-        url: '#{SCHEMA_PATH}',
-      },
-    },
+    '#{SCHEMA_GRAPHQL_PATH}': #{SCHEMA_GRAPHQL_GENERATES_CONFIG},
     // src/graphql/generated/types.ts
     '#{TYPES_PATH}': {
       plugins: ['typescript'],

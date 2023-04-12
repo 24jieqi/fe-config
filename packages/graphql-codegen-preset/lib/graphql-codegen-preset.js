@@ -89,6 +89,7 @@ program
     'Date:number',
     'DateTime:number',
   ])
+  .option('--schema-ast-default, -sad', '使用官方默认的 schema-ast 插件', false)
 
 program.parse()
 
@@ -102,11 +103,12 @@ fsPromises
   .readFile(path.join(__dirname, 'codegen.txt'))
   .then(async s => {
     let fileStr = s.toString()
+    const URL = program.args[0]
 
-    const { W, F, S, T, D, Ie, Nie, scalars } = program.opts()
+    const { W, F, S, T, D, Ie, Nie, scalars, Sad } = program.opts()
 
     const VAR_MAP = {
-      SCHEMA_PATH: program.args[0],
+      SCHEMA_PATH: URL,
       FOLDER_PATH: F,
       SCHEMA_GRAPHQL_PATH: `${F}/${S}/schema.graphql`,
       TYPES_PATH: `${F}/${T}/types.ts`,
@@ -121,6 +123,23 @@ fsPromises
           return `${vs[0]}:'${vs[1]}'`
         })
         .join(',')}}`,
+      SCHEMA_GRAPHQL_GENERATES_CONFIG: Sad
+        ? JSON.stringify({
+            plugins: ['schema-ast'],
+            config: {
+              federation: false,
+            },
+          })
+        : JSON.stringify({
+            plugins: ['@fruits-chain/schema-ast'],
+            config: {
+              federation: false,
+              includeDirectives: true,
+              strictScalars: true,
+              customDirectives: true,
+              url: URL,
+            },
+          }),
     }
 
     Object.entries(VAR_MAP).forEach(([key, value]) => {

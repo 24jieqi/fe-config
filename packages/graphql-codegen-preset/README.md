@@ -76,3 +76,9 @@ yarn add @apollo/client graphql
 > fruits-chain-gc http://xx/graphql --scalars BigDecimal:number ID:string
 
 自定义 GraphQL 类型转换
+
+### --schema-ast-default
+
+> fruits-chain-gc http://xx/graphql -sad 或 fruits-chain-gc http://xx/graphql --schema-ast-default
+
+使用官方默认的 `schema-ast` 插件
