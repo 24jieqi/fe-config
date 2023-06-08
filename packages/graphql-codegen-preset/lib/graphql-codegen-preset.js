@@ -89,7 +89,7 @@ program
     'Date:number',
     'DateTime:number',
   ])
-  .option('--schema-ast-default, -sad', '使用官方默认的 schema-ast 插件', false)
+  .option('--schema-ast-f, -saf', '使用 @fruits-chain/schema-ast 插件', false)
 
 program.parse()
 
@@ -105,7 +105,7 @@ fsPromises
     let fileStr = s.toString()
     const URL = program.args[0]
 
-    const { W, F, S, T, D, Ie, Nie, scalars, Sad } = program.opts()
+    const { W, F, S, T, D, Ie, Nie, scalars, Saf } = program.opts()
 
     const VAR_MAP = {
       SCHEMA_PATH: URL,
@@ -123,14 +123,8 @@ fsPromises
           return `${vs[0]}:'${vs[1]}'`
         })
         .join(',')}}`,
-      SCHEMA_GRAPHQL_GENERATES_CONFIG: Sad
+      SCHEMA_GRAPHQL_GENERATES_CONFIG: Saf
         ? JSON.stringify({
-            plugins: ['schema-ast'],
-            config: {
-              federation: false,
-            },
-          })
-        : JSON.stringify({
             plugins: ['@fruits-chain/schema-ast'],
             config: {
               federation: false,
@@ -138,6 +132,12 @@ fsPromises
               strictScalars: true,
               customDirectives: true,
               url: URL,
+            },
+          })
+        : JSON.stringify({
+            plugins: ['schema-ast'],
+            config: {
+              federation: false,
             },
           }),
     }

@@ -77,8 +77,8 @@ yarn add @apollo/client graphql
 
 自定义 GraphQL 类型转换
 
-### --schema-ast-default
+### --schema-ast-f
 
-> fruits-chain-gc http://xx/graphql -sad 或 fruits-chain-gc http://xx/graphql --schema-ast-default
+> fruits-chain-gc http://xx/graphql -saf 或 fruits-chain-gc http://xx/graphql --schema-ast-f
 
-使用官方默认的 `schema-ast` 插件
+使用 `@fruits-chain/schema-ast` 插件，GraphQL 接口必须有一个 `_service` 的接口返回全量 schema 字符串。
