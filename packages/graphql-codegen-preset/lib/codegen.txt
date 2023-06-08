@@ -11,6 +11,7 @@ const config: CodegenConfig = {
       plugins: ['typescript'],
       config: {
         scalars: #{SCALARS},
+        constEnums: true,
       },
     },
     // src/graphql
