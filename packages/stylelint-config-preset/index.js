@@ -1,9 +1,5 @@
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-prettier',
-    'stylelint-config-rational-order',
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-rational-order'],
   customSyntax: 'postcss-less',
   plugins: [
     'stylelint-declaration-block-no-ignored-properties',
@@ -58,5 +54,11 @@ module.exports = {
     // 'number-leading-zero': 'never',
     // 禁止空第一行
     'no-empty-first-line': true,
+    'declaration-block-no-duplicate-properties': [
+      true,
+      {
+        ignore: ['consecutive-duplicates-with-different-values'],
+      },
+    ],
   },
 }
