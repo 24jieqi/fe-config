@@ -36,7 +36,7 @@ module.exports = {
 // package.json
 {
   "resolutions": {
-    "prettier": "^2.5.1"
+    "prettier": "^3.0.0"
   }
 }
 ```

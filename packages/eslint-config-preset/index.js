@@ -94,4 +94,7 @@ module.exports = {
     },
     'import/extensions': ['.js', '.jsx', 'ts', 'tsx'],
   },
+  parserOptions: {
+    project: true,
+  },
 }
