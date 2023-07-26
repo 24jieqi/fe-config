@@ -29,15 +29,15 @@
     "url": "https://github.com/hjfruit/fe-config/issues"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "~6.1.0",
-    "@typescript-eslint/parser": "~6.1.0",
+    "@typescript-eslint/eslint-plugin": "~6.2.0",
+    "@typescript-eslint/parser": "~6.2.0",
     "eslint": "~8.45.0",
     "eslint-config-alloy": "~5.0.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-import-resolver-typescript": "~3.5.0",
     "eslint-plugin-import": "~2.27.0",
     "eslint-plugin-prettier": "5.0.0",
-    "eslint-plugin-react": "~7.32.1",
+    "eslint-plugin-react": "~7.33.0",
     "eslint-plugin-react-hooks": "4.6.0",
     "prettier": "~3.0.0"
   }
