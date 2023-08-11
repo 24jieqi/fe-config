@@ -6,7 +6,7 @@ import Bb from '@/eslint-config-preset/__tests__/code/components/b'
 import Aa from './components/a'
 import { SomeEnum } from './enum'
 
-const App: FC = () => {
+const App: FC = _ => {
   const [value] = useState(0)
 
   useEffect(() => {
