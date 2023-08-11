@@ -70,7 +70,7 @@ module.exports = {
       },
     ],
     'import/default': 0,
-    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    'no-unused-vars': 0,
     /**
      * 禁止变量名与上层作用域内的已定义的变量重复
      */
