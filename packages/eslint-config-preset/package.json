@@ -1,6 +1,6 @@
 {
   "name": "@fruits-chain/eslint-config-preset",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "💪🏻 洪九果品前端团队 React 项目 ESLint 规则",
   "authors": [
     "LING_ZI_QING <onlylingstudio@gmail.com>"
