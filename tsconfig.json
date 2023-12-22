@@ -62,5 +62,5 @@
     "resolveJsonModule": true
   },
   "exclude": ["node_modules"],
-  "include": ["./packages"]
+  "include": ["./packages", ".eslintrc.js", "changelog.config.js", "stylelint.config.js", "scripts"]
 }

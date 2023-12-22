@@ -1,5 +1,6 @@
-import prettierConfigPreset from '@fruits-chain/prettier-config-preset'
 import * as prettier from 'prettier'
+
+import prettierConfigPreset from '@fruits-chain/prettier-config-preset'
 
 import { formatKey, joinCode, comments } from '../helper'
 import type { VarValue } from '../typing'

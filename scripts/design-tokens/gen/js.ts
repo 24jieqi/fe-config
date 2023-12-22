@@ -22,10 +22,10 @@ export const jsGen = async (
         typeof item.value === 'string'
           ? `'${item.value}'`
           : less
-          ? !/^opacity\-\d*/.test(item.label)
-            ? `'${item.value}px'`
-            : `'${item.value}'`
-          : `${item.value}`
+            ? !/^opacity\-\d*/.test(item.label)
+              ? `'${item.value}px'`
+              : `'${item.value}'`
+            : `${item.value}`
       const _key = less
         ? `'${item.label}'`
         : `${stylesheet ? '$' : ''}${formatKey(item.label)}`
