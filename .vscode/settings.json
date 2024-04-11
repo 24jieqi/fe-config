@@ -2,5 +2,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit"
-  }
+  },
+  "cSpell.words": [
+    "jieqi"
+  ]
 }

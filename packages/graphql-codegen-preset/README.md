@@ -1,7 +1,7 @@
 <h1 align="center">GraphQL Codegen Preset</h1>
 
 <div align="center">
-洪九果品前端团队 graphql-codegen 通用方案
+24jieqi 团队 graphql-codegen 通用方案
 </div>
 
 [graphql-codegen-preset]: https://www.npmjs.com/package/@fruits-chain/graphql-codegen-preset

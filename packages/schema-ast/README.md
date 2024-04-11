@@ -1,7 +1,7 @@
 <h1 align="center">GraphQL Codegen Schema AST</h1>
 
 <div align="center">
-洪九果品前端团队 graphql-codegen Schema AST 方案
+24jieqi 团队 graphql-codegen Schema AST 方案
 </div>
 
 [schema-ast]: https://www.npmjs.com/package/@fruits-chain/schema-ast

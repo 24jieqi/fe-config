@@ -1,7 +1,7 @@
 <h1 align="center">StyleLint Config Preset</h1>
 
 <div align="center">
-洪九果品前端团队 StyleLint 规则
+24jieqi 团队 StyleLint 规则
 </div>
 
 [stylelint-config-preset]: https://www.npmjs.com/package/@fruits-chain/stylelint-config-preset

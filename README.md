@@ -1,7 +1,7 @@
-<h1 align="center">Fruits Chain ESLint Config</h1>
+<h1 align="center">24jieqi FE config</h1>
 
 <div align="center">
-洪九果品前端团队 ESLint 规则
+24jieqi 团队前端编码配置
 </div>
 
 <div align="center">

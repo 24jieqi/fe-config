@@ -1,7 +1,7 @@
 <h1 align="center">Design Tokens Bailu</h1>
 
 <div align="center">
-洪九果品前端团队白露设计规范变量
+24jieqi 团队白露设计规范变量
 </div>
 
 [design-tokens-bailu]: https://www.npmjs.com/package/@fruits-chain/design-tokens-bailu

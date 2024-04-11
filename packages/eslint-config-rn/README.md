@@ -1,7 +1,7 @@
 <h1 align="center">ESLint Config React Native</h1>
 
 <div align="center">
-洪九果品前端团队 React Native 项目 ESLint 规则
+24jieqi 团队 React Native 项目 ESLint 规则
 </div>
 
 [eslint-config-rn]: https://www.npmjs.com/package/@fruits-chain/eslint-config-rn

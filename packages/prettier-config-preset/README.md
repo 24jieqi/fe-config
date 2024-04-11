@@ -1,7 +1,7 @@
 <h1 align="center">Prettier Config Preset</h1>
 
 <div align="center">
-洪九果品前端团队 prettier 规则
+24jieqi 团队 prettier 规则
 </div>
 
 [prettier-config-preset]: https://www.npmjs.com/package/@fruits-chain/prettier-config-preset
