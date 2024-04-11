@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "",
   "author": "",
-  "homepage": "https://github.com/hjfruit/fe-config#readme",
+  "homepage": "https://github.com/24jieqi/fe-config#readme",
   "license": "ISC",
   "main": "index.js",
   "directories": {},
@@ -16,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hjfruit/fe-config.git"
+    "url": "git+https://github.com/24jieqi/fe-config.git"
   },
   "bugs": {
-    "url": "https://github.com/hjfruit/fe-config/issues"
+    "url": "https://github.com/24jieqi/fe-config/issues"
   },
   "dependencies": {
     "node-fetch": "^2.6.7"
