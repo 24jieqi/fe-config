@@ -7,8 +7,6 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': true,
-    // 兼容 prettier
-    'string-quotes': ['single', {}],
     'function-name-case': ['lower', { ignoreFunctions: ['/colorPalette/'] }],
     'no-descending-specificity': null,
     'no-invalid-position-at-import-rule': null,
@@ -52,8 +50,6 @@ module.exports = {
     // 兼容 prettier
     // // 禁止小于 1 的小数有一个前导零
     // 'number-leading-zero': 'never',
-    // 禁止空第一行
-    'no-empty-first-line': true,
     'declaration-block-no-duplicate-properties': [
       true,
       {
