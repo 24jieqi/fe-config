@@ -1,6 +1,6 @@
 {
   "name": "@fruits-chain/eslint-config-rn",
-  "version": "0.3.21",
+  "version": "0.3.22",
   "description": "💪🏻 24jieqi 团队 React Native 项目 ESLint 规则",
   "author": "LING_ZI_QING <onlylingstudio@gmail.com>",
   "homepage": "https://github.com/hjfruit/fe-config#readme",
@@ -27,7 +27,7 @@
     "url": "https://github.com/hjfruit/fe-config/issues"
   },
   "dependencies": {
-    "@fruits-chain/eslint-config-preset": "^0.3.21",
+    "@fruits-chain/eslint-config-preset": "^0.3.22",
     "eslint-plugin-react-native": "^4.0.0"
   }
 }

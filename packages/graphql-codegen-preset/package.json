@@ -1,6 +1,6 @@
 {
   "name": "@fruits-chain/graphql-codegen-preset",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "💪🏻 24jieqi 团队 graphql-codegen 通用方案",
   "keywords": [
     "graphql-codegen"
@@ -31,7 +31,7 @@
     "url": "https://github.com/hjfruit/fe-config/issues"
   },
   "dependencies": {
-    "@fruits-chain/schema-ast": "^0.0.1",
+    "@fruits-chain/schema-ast": "^0.0.2",
     "@graphql-codegen/cli": "~3.2.2",
     "@graphql-codegen/near-operation-file-preset": "~2.5.0",
     "@graphql-codegen/typescript-operations": "~3.0.2",
